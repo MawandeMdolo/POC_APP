@@ -1,6 +1,6 @@
 
 # About the Project
-This is a web based application that allows sales to search for suppliers that were added by system admin(#ManageSuppliers ).
+This is a web based application that allows sales to search for suppliers that were added by system admin(#ManageSuppliers).
 
 #Installation SoftwareDeveloper_Interview_Exercise_#3 folder
 The project is developed in .Net 6, Visual Studio 2022 and MS Database. 
@@ -20,10 +20,12 @@ The project is developed in .Net 6, Visual Studio 2022 and MS Database.
 
 
 
-#Usage
-1..Clone/download a solution to your local machine from SoftwareDeveloper_Interview_Exercise_#2.
-2.The default page is a #SearchSuppliers, which allows sales to search the supplier.
- The second page is #ManageSuppliers which allows users to Add, Update Suppliers. 
+#Usage SoftwareDeveloper_Interview_Exercise_#3
+1.The default page is a #SearchSuppliers, which allows sales to search the supplier.
+2.The second page is #ManageSuppliers which allows users to Add, Update Suppliers. 
+
+#Usage SoftwareDeveloper_Interview_Exercise_#2
+1.Make sure you have the required csv file.
 
 
  
