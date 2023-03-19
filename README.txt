@@ -10,9 +10,20 @@ The project is developed in .Net 6, Visual Studio 2022 and MS Database.
 4 In your POC_APP project open "appsettings.Development" file and change "DefaultConnection" to link to your database.
 5 In your POC_WEB project open  "SD" file and change your "APIBaseURL" url to match  POC_APPp roject local url.
 
+#Installation SoftwareDeveloper_Interview_Exercise_#2 ConsoleAPP folder
+1.Clone/download a solution to your local machine from SoftwareDeveloper_Interview_Exercise_#2\ConsoleAPP\ConsoleAPP.sln.
+2.Open App.config file  and change FileServerPathCSV and FileServerPathTEXT to match to local system
+3. Copy and paste csv file to the. FileServerPathCSV.
+
+#Installation SoftwareDeveloper_Interview_Exercise_#1 ConsoleApplication1 folder
+1.Clone/download a solution to your local machine from SoftwareDeveloper_Interview_Exercise_#1\ConsoleAPP\ConsoleApplication1.
+
+
+
 #Usage
-1.The default page is a #SearchSuppliers, which allows sales to search the supplier.
-2 The second page is #ManageSuppliers which allows users to Add, Update Suppliers. 
+1..Clone/download a solution to your local machine from SoftwareDeveloper_Interview_Exercise_#2.
+2.The default page is a #SearchSuppliers, which allows sales to search the supplier.
+ The second page is #ManageSuppliers which allows users to Add, Update Suppliers. 
 
 
  
