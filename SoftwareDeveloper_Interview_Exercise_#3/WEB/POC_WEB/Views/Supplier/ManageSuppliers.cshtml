@@ -1,0 +1,145 @@
+﻿@model Entities.DTOs.CompanyDTO
+
+@{
+    ViewData["Title"] = "Supplier";
+}
+
+
+
+<div class="header-title">
+    <h1>Supplier</h1>
+    <small>Supplier</small>
+    <ol class="breadcrumb hidden-xs">
+        <li class="active">Supplier configuration</li>
+    </ol>
+</div>
+
+<br />
+
+<div class="form-row">
+    <div class="form-group col-sm-4">
+        <button type="button" class="counterButton" data-toggle="modal" id="btnNew" data-target="#SupplierModalCenter">
+            <i class="fa fa-plus"></i> New
+        </button>
+    </div>
+</div>
+<br />
+
+<table id="tblSuppliers" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Telephone</th>
+             <th>Code</th>
+            <th class="notexport"></th>
+        </tr>
+    </thead>
+</table>
+
+<!-- Modal -->
+<div class="modal fade" id="SupplierModalCenter" tabindex="-1" role="dialog" aria-labelledby="SupplierModalCenterTitle" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered modal-lg modal-lg modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Supplier</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            @using (Html.BeginForm("CreateUpdateSupplier", "Supplier", FormMethod.Post, new { Id = "SupplierForm" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary()
+                @Html.HiddenFor(u => u.Id, new { id = "SupplierId" })
+
+                    <div class="modal-body makeScroll">
+                        <div class="panel panel-bd">
+                            <div class="card">
+                                <div class="card-header">
+                                    <span id="spBankHeader">New Supplier</span>
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-row col-sm-12">
+                                        <div id="error1"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-sm-4">
+                                            <label>Name</label>
+                                            <input asp-for="Name" class="form-control form-control-sm" placeholder="Supplier Name" />
+                                                <span asp-validation-for="Name" id="errorName" class="text-danger small"></span>
+                                        </div>
+                                        <div class="form-group col-sm-4">
+                                            <label>Telephone Number</label>
+                                                        <input asp-for="TelephoneNo" class="form-control form-control-sm" placeholder="Telephone Number" />
+                                                    <span asp-validation-for="TelephoneNo" id="errorTelephoneNo" class="text-danger small"></span>
+                                        </div>
+                                        <div class="form-group col-sm-4">
+                                            <label>Code</label>
+                                                    <input asp-for="Code" class="form-control form-control-sm" placeholder="Code" />
+                                                    <span asp-validation-for="Code" id="errorCode" class="text-danger small"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+                            <input id="btnSave" type="submit" value="Submit" class="counterButton">
+                        </div>
+                    </div>
+            }
+
+        </div>
+    </div>
+</div>
+
+<!--Spinner Modal-->
+
+<div class="modal" id="busyModal" data-backdrop="static"  data-keyboard="false">
+    <div class="center" style="margin-left:45%;margin-top:20%">
+        <img src="~/Images/loader.gif" />
+    </div>
+    <button type="button" style="visibility: hidden" class="btn btn-secondary" id="btnClose" data-dismiss="modal" />
+</div>
+<button type="button" hidden="hidden" data-backdrop="static" data-toggle="modal" id="btnSuccessModal" data-target="#SuccessModal">
+</button>
+<!-- Success Modal-->
+<div class="modal" tabindex="-1" role="dialog" id="SuccessModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title ">Registration Success</h5>
+            </div>
+            <div class="modal-body">
+                <p id="successMessage"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-sm rounded-pill" onclick="CloseModalSuccess()">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<button type="button" hidden="hidden" data-backdrop="static" data-toggle="modal" id="btnFailModal" data-target="#FailedModal">
+</button>
+<!--End Of Failed Modal-->
+<div class="modal" tabindex="-1" role="dialog" id="FailedModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title ">Registration Failded</h5>
+            </div>
+            <div class="modal-body">
+                <p id="FailMessage"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-sm rounded-pill" onclick="CloseModalFail()">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts
+    {
+
+                <script src="~/js/Views/ManageSupplier/Index.js?v=@DateTime.Now.Ticks.ToString()"></script>
+}
